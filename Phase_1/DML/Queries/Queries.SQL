@@ -104,3 +104,60 @@ WHERE c.customer_id NOT IN (
 	SELECT r.customer_id
     FROM reservation r
 );
+
+-- Query 7
+
+-- Creating a view with premium customers only $$
+CREATE VIEW premium_customers AS
+    SELECT 
+        *
+    FROM
+        Customer
+    WHERE
+        premium = TRUE;
+
+
+-- Updating the view's definition...
+DROP VIEW IF EXISTS premium_customers;
+CREATE VIEW premium_customers AS
+    SELECT 
+        *
+    FROM
+        Customer
+    WHERE
+        premium = FALSE;
+
+-- Now selecting from the view will reflect the non premium customers 🙂
+SELECT 
+    *
+FROM
+    premium_customers
+
+-- Query 8
+
+-- Part A
+ --COMPLETING...
+
+-- Part B
+--COMPLETING...
+
+
+-- Query 9
+
+-- Check for overlapping reservations (same car & same customer)
+SELECT 
+    r1.*
+FROM
+    Reservation r1
+        INNER JOIN
+    Reservation r2 ON r1.car_id = r2.car_id
+        AND r1.customer_id = r2.customer_id
+WHERE
+    r1.reservation_id <> r2.reservation_id
+        AND r1.rental_date < r2.return_date
+        AND r1.return_date > r2.rental_date;
+
+-- Check covering constraints
+--COMPLETING....
+
+
