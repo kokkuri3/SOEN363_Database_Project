@@ -17,7 +17,7 @@ db_connection = mysql.connector.connect(
 cursor = db_connection.cursor()
 
 # Generate and insert data into User table
-for _ in range(75000):
+for _ in range(550000):
     user_id = random.randint(1, 999999)
     # Check if user_id already exists in the database
     while True:
@@ -37,7 +37,7 @@ for _ in range(75000):
 print("1. User Table Insert Complete")
 
 # Generate and insert data into Car table
-for _ in range(75000):
+for _ in range(550000):
     car_id = random.randint(10**8, 10**9 - 1)
     # Check if car_id already exists in the database
     while True:
@@ -58,7 +58,7 @@ for _ in range(75000):
 print("2. Car Table Insert Complete")
 
 # Generate and insert data into Customer table
-for _ in range(75000):
+for _ in range(550000):
     customer_id = random.randint(1, 999999)
     # Check if customer_id already exists in the database
     while True:
@@ -86,7 +86,7 @@ print("3. Customer Table Insert Complete")
 
 # Generate and insert data into Employee table
 positions = ['Manager', 'Salesperson', 'Mechanic']
-for _ in range(75000):
+for _ in range(550000):
     employee_id = random.randint(1, 999999)
     # Check if employee_id already exists in the database
     while True:
@@ -113,7 +113,7 @@ for _ in range(75000):
 print("4. Employee Table Insert Complete")
 
 # Generate and insert data into Reservation table
-for _ in range(75000):
+for _ in range(550000):
     reservation_id = random.randint(1, 999999)
     # Check if reservation_id already exists in the database
     while True:
@@ -141,7 +141,7 @@ for _ in range(75000):
 print("5. Reservation Table Insert Complete")
 
 # Generate and insert data into Reviews table
-for _ in range(75000):
+for _ in range(550000):
     review_id = random.randint(1, 999999)
     # Check if review_id already exists in the database
     while True:
