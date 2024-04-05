@@ -131,7 +131,7 @@ CREATE VIEW premium_customers AS
 SELECT 
     *
 FROM
-    premium_customers
+    premium_customers;
 
 -- Query 8
 
@@ -181,6 +181,6 @@ WHERE
         AND r1.return_date > r2.rental_date;
 
 -- Check covering constraints
---COMPLETING....
+EXPLAIN SELECT customer_id, car_id FROM reservation;
 
 
