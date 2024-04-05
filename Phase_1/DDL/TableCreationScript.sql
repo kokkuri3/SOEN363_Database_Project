@@ -39,7 +39,8 @@ CREATE TABLE Reservation (
     rental_date DATE,
     return_date DATE,
     FOREIGN KEY (car_id) REFERENCES Car(car_id),
-    FOREIGN KEY (customer_id) REFERENCES Customer(customer_id)
+    FOREIGN KEY (customer_id) REFERENCES Customer(customer_id),
+    INDEX covering_constraint (customer_id, car_id)
 );
 
 -- Reviews table (weak entity)
