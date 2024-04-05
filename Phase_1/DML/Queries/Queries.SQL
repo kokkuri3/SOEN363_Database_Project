@@ -135,11 +135,21 @@ FROM
 
 -- Query 8
 
--- Part A
- --COMPLETING...
+ -- Part A
+
+SELECT * FROM Reservation AS R
+WHERE R.car_id NOT IN (
+    SELECT R1.car_id FROM (
+        SELECT DISTINCT car_id, customer_id FROM Reservation
+    ) AS R1
+    LEFT JOIN (
+        SELECT DISTINCT car_id, customer_id FROM Reservation
+    ) AS R2 ON R1.car_id = R2.car_id AND R1.customer_id = R2.customer_id
+    WHERE R2.car_id IS NULL
+);
+
 
 -- Part B
-
 
 SELECT * FROM Reservation AS r1
 WHERE NOT EXISTS (
