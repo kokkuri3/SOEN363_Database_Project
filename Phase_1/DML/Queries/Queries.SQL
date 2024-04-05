@@ -139,7 +139,20 @@ FROM
  --COMPLETING...
 
 -- Part B
---COMPLETING...
+
+
+SELECT * FROM Reservation AS r1
+WHERE NOT EXISTS (
+    SELECT 1 FROM (
+        SELECT DISTINCT customer_id FROM Reservation
+    ) AS p
+    WHERE NOT EXISTS (
+        SELECT 1 FROM Reservation AS r2 
+        WHERE r2.car_id = r1.car_id 
+        AND r2.customer_id = p.customer_id
+    )
+);
+
 
 
 -- Query 9
