@@ -150,17 +150,11 @@ WHERE R.car_id NOT IN (
 
 
 -- Part B
-
-SELECT * FROM Reservation AS r1
+SELECT * FROM reservation AS r1
 WHERE NOT EXISTS (
-    SELECT 1 FROM (
-        SELECT DISTINCT customer_id FROM Reservation
-    ) AS p
-    WHERE NOT EXISTS (
-        SELECT 1 FROM Reservation AS r2 
-        WHERE r2.car_id = r1.car_id 
-        AND r2.customer_id = p.customer_id
-    )
+	(SELECT  c1.customer_id FROM customer AS c1)
+    EXCEPT
+    (SELECT r2.customer_id FROM reservation AS r2 WHERE r1.reservation_id = r2.reservation_id)
 );
 
 

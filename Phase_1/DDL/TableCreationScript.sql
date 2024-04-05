@@ -49,5 +49,5 @@ CREATE TABLE Reviews (
     customer_id INT,
     rating DECIMAL(2,1) CHECK (rating BETWEEN 1 AND 5),
     description VARCHAR(1000),
-    FOREIGN KEY (customer_id) REFERENCES Customer(customer_id)
+    FOREIGN KEY (customer_id) REFERENCES Customer(customer_id) ON DELETE CASCADE
 );
