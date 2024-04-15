@@ -140,7 +140,21 @@ class MongoQueryApp:
 
         elif query_number == 4:
             # Q4 - Simulate a relational group by query in NoSQL (aggregate per category)
-            TO_DO = ''
+            # This query is mostly done for Cars, but the TotalAmount will work on every table
+            pipeline = [
+                {
+                    "$group": {
+                    "_id": "$category",
+                    "TotalAmount" : { "$sum": 1 }, 
+                    "mpgAvg": { "$avg": "$mpg" }, 
+                    "horsepowerAvg": { "$avg": "$horsepower" }
+                    }                   
+                }
+            ]
+
+            results = list(collection.aggregate(pipeline))
+            
+            self.display_result(results)
             self.result_text.insert(tk.END, f"\n\n -- End of Query --")
             
 
