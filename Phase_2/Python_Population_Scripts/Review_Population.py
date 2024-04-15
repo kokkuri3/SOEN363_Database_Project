@@ -6,10 +6,10 @@ client = MongoClient('mongodb+srv://soen363prjoect2:fQqnbq4VU7LxmAO6@cluster0.y4
 
 # Select database and collection
 db = client['soen363p2']
-collection = db['Employee']
+collection = db['Review']
 
 # Read CSV file and insert data into MongoDB
-with open('..\..\Database CSV Exported Data\Employee.csv', 'r') as csvfile:
+with open('..\..\Database CSV Exported Data\Review.csv', 'r') as csvfile:
     csvreader = csv.DictReader(csvfile)
     for row in csvreader:
         row['review_id'] = int(row['review_id'])  
