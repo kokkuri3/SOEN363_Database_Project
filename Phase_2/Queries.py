@@ -134,8 +134,23 @@ class MongoQueryApp:
             self.result_text.insert(tk.END, f"\n\n -- End of Query --")
 
         elif query_number == 3:
-            # Q3 - Find top 5 entities satisfying a criteria, sorted by an attribute
-            TO_DO = ''
+           
+             # Query 3 - Find top 5 entities satisfying a criteria, sorted by an attribute
+
+            # Definiung the filtering criteria
+            criteria = {"description": {"$regex": "^T"}}
+
+            # Defining the attribute by which we re sorting
+            sort_attribute = "rating"
+
+            # Retrieving the collection
+            collection = self.database.get_collection("Review")
+
+            # Executing the query to find entities satisfying the criteria & sorted by the attribute :
+            entities = collection.find(criteria).sort(sort_attribute, ASCENDING).limit(5)
+
+            # Displaying the results
+            self.display_result(list(entities))
             self.result_text.insert(tk.END, f"\n\n -- End of Query --")
 
         elif query_number == 4:
