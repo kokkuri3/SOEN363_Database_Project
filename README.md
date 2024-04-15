@@ -13,8 +13,10 @@
 ## Description
 This database project models a car rental service in which customers can browse available vehicles and create reservations.
 
-The database implementation platform that we used was MySQL.
+The database implementation platform that we used was MySQL for phase I and Atlas MangoDB for phase II.
 
 Two datasets were outsourced in order to populate tables.
 - For the car table: [Automobile Dataset](https://www.kaggle.com/datasets/tawfikelmetwally/automobile-dataset/data)
 - For the user table: [Car Sales Price Prediction Dataset](https://www.kaggle.com/datasets/yashpaloswal/ann-car-sales-price-prediction)
+
+Additionally an external library Faker was also used.
